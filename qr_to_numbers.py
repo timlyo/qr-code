@@ -8,14 +8,16 @@ def bools_to_int(bools):
 		total += bool * 2 ** index
 	return total
 
+# https://youtu.be/wxsvS_w36Es
 
-name = "/home/tim/Downloads/qrcode.png"
+
+name = "qrcode.png"
 
 image = Image.open(name).convert("L").point(lambda x: bool(x))
 
 pixels = image.getdata()
 
-lines = zip(*[iter(pixels)] * 26)
+lines = zip(*[iter(pixels)] * 28)
 
 digits = []
 

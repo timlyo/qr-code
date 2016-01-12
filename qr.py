@@ -1,4 +1,4 @@
-code = "2fa80,1f080be,1123aa2,11083a2,11343a2,1f17cbe,14a80,3fb8cff,c7155,274badd,17cf554,3747b6e,1dec108,1dec108,1647a55,1504104,1043e0e,19e7a0b,3f908e7,176a8,1f308e6,1117809,1118320,1107372,1f13a06,7380"
+code = "ffbffff,80aee03,bebaafb,a286a8b,a26028b,a27da8b,be8cafb,806aa03,ff9e7ff,9c0079f,b6e6787,9218593,e12a3db,c9c6afb,a30d577,a098453,b9331ab,a45802f,ff46baf,8072a9b,be433bf,a2ba007,a28e253,a2a816b,be7703b,80431db,ffbffff,ffbffff"
 
 for thing in code.split(","):
-	print(format(int(thing, 16) + 262144, "026b").replace("1", "  ").replace("0", u"\u2588" * 2))
+	print(format(int(thing, 16) + 262144, "028b").replace("1", "  ").replace("0", u"\u2588" * 2))
