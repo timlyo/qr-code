@@ -1,6 +1,6 @@
 from PIL import Image
 
-import math
+import math, re
 
 
 # https://youtu.be/wxsvS_w36Es
@@ -24,6 +24,15 @@ def find_simple_factors(integer_list):
 		else:  # not valid factor
 			found_factors.append(factor)
 	return found_factors
+
+
+def find_repeats(string):
+	""" Search encoded string for repetition
+	Only useful if repeats are longer than 1 char
+	"""
+	r = re.compile(r"(.+?)\1+")
+	for match in r.finditer(string):
+		yield (match.group(1), len(match.group(0)) / len(match.group(1)))
 
 
 name = "qr.png"
@@ -55,6 +64,9 @@ for integer in integers:
 	string = str(hex(integer - smallest)).replace("0x", "")
 	encoded_numbers.append(string)
 
+
 result = ",".join(encoded_numbers)
+
+print("Repeats", list(find_repeats(result)))
 print("length: ", len(result))
-print(result)
+print("Result:", result)
