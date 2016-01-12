@@ -1,5 +1,6 @@
 from PIL import Image
 
+import base64
 import math
 import re
 
@@ -45,7 +46,7 @@ pixels = image.getdata()
 width = math.sqrt(len(pixels))
 print("Width", width)
 
-lines = zip(*[iter(pixels)] * 23)
+lines = zip(*[iter(pixels)] * int(width))
 
 encoded_numbers = []
 integers = []
@@ -64,12 +65,16 @@ print("Average", average)
 print("Factors", factors)
 
 for integer in integers:
-	string = str(hex(integer - smallest)).replace("0x", "")
-	encoded_numbers.append(string)
+	# integer_string = str(hex(integer - smallest))[2:]
+	integer_string = str(integer - smallest)
+	encoded_numbers.append(integer_string)
 
 
 result = ",".join(encoded_numbers)
 
-print("Repeats", list(find_repeats(result)))
+try:
+	print("Repeats", list(find_repeats(result)))
+except:
+	print("Repeat find failed")
 print("length: ", len(result))
 print("Result:", result)
