@@ -1,7 +1,6 @@
 from PIL import Image
 
 import math
-import zlib, base64
 
 
 # https://youtu.be/wxsvS_w36Es
@@ -21,18 +20,17 @@ def find_simple_factors(integer_list):
 	for factor in testing_factors:
 		for integer in integer_list:
 			if integer % factor != 0:
-				break;
+				break
 		else:  # not valid factor
 			found_factors.append(factor)
 	return found_factors
 
 
 name = "qr.png"
-image = Image.open(name).convert("L").point(lambda x: bool(x))
+image = Image.open(name).convert("L").point(lambda x: bool(x))  # greyscale and booleanify
 pixels = image.getdata()
 
 width = math.sqrt(len(pixels))
-
 print("Width", width)
 
 lines = zip(*[iter(pixels)] * 23)
