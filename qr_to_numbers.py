@@ -1,6 +1,7 @@
 from PIL import Image
 
-import math, re
+import math
+import re
 
 
 # https://youtu.be/wxsvS_w36Es
@@ -14,8 +15,10 @@ def bools_to_int(bools):
 
 
 def find_simple_factors(integer_list):
-	""" Find small common factors in integer list"""
-	testing_factors = range(2, 500000)
+	""" Find common factors in integer list
+	Worth limiting if it takes too long
+	"""
+	testing_factors = range(2, max(integer_list)//2)
 	found_factors = []
 	for factor in testing_factors:
 		for integer in integer_list:
