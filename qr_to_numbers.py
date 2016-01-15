@@ -82,7 +82,7 @@ def convert(name):
 		print("Repeat find failed")
 	info["length"] = len(result)
 
-	return result, info
+	return encoded_numbers, info
 
 if __name__ == "__main__":
 	result = convert("qr.png")
